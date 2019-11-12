@@ -62,4 +62,7 @@ public class UserServiceImpl implements UserService {
             return new Response("-1","用户不存在");
     }
 
+    public String get123(){
+        return "0";
+    }
 }

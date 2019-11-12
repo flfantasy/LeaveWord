@@ -4,7 +4,7 @@ services:
   leaveword-mysql:
     image: mysql:5.6
     ports:
-      - "3307:3306"
+      - "3306:3306"
     command: [
       '--character-set-server=utf8mb4',
       '--collation-server=utf8mb4_unicode_ci'
@@ -12,8 +12,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: leaveword
-    networks:
-      - leaveword-network
 
   leaveword:
     build: ../LeaveWord
@@ -23,9 +21,5 @@ services:
       - leaveword-mysql
     ports:
       - 8081:8081
-    networks:
-      - leaveword-network
+    network_mode: host
 
-networks:
-  leaveword-network:
-    driver: bridge
