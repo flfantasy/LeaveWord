@@ -1,24 +1,24 @@
 version: '3'
 services:
-  # MySql
-  leaveword-mysql:
-    image: mysql:5.6
-    ports:
-      - "3306:3306"
-    command: [
-      '--character-set-server=utf8mb4',
-      '--collation-server=utf8mb4_unicode_ci'
-    ]
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: leaveword
+#  # MySql
+#  leaveword-mysql:
+#    image: mysql:5.6
+#    ports:
+#      - "3306:3306"
+#    command: [
+#      '--character-set-server=utf8mb4',
+#      '--collation-server=utf8mb4_unicode_ci'
+#    ]
+#    environment:
+#      MYSQL_ROOT_PASSWORD: root
+#      MYSQL_DATABASE: leaveword
 
   leaveword:
     build: ../LeaveWord
     image: demouser/leaveword
     restart: always
-    depends_on:
-      - leaveword-mysql
+#    depends_on:
+#      - leaveword-mysql
     ports:
       - 8081:8081
     network_mode: host
